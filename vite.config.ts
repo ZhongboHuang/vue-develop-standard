@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { Plugin as importToCDN, autoComplete } from 'vite-plugin-cdn-import'
-import viteCompression from 'vite-plugin-compression'
+// import { createVitePlugins } from './build/plugins';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,14 +34,15 @@ export default defineConfig({
           path: 'dist/pinia.iife.min.js'
         }
       ]
-    }),
-    // gzip 压缩
-    viteCompression({
-      verbose: true,
-      algorithm: 'gzip',
-      ext: '.gz'
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/var.scss";`
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
