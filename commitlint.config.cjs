@@ -1,11 +1,11 @@
 // @see: https://cz-git.qbb.sh/zh/guide/
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
 const scopes = fs
   .readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory())
-  .map((dirent) => dirent.name.replace(/s$/, ''))
+  .map((dirent) => dirent.name.replace(/s$/, ''));
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
@@ -159,4 +159,4 @@ module.exports = {
     customScopesAlias: 'custom',
     allowBreakingChanges: ['feat', 'fix']
   }
-}
+};
