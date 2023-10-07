@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
+import { LocalStorageService, SessionStorageService } from '@/utils/storage';
+
+LocalStorageService.setItem('test', 'test');
+SessionStorageService.setItem('test', 'test');
 </script>
 
 <template>
@@ -83,3 +87,4 @@ nav a:first-of-type {
   }
 }
 </style>
+@/utils/storage

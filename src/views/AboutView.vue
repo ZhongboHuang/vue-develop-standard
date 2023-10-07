@@ -9,4 +9,7 @@
 .global {
   color: $primary-color;
 }
+.box-two {
+  background-color: black;
+}
 </style>
